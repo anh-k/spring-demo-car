@@ -11,15 +11,13 @@ public class AppConfig {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         Car car = context.getBean(Car.class);
-        car.setColor(ColorEnum.BLUE);
-        car.setWeight(Float.parseFloat("203.2"));
         car.setBrand("Tesla");
         StringBuilder carStringBuilder = new StringBuilder();
         carStringBuilder
                 .append("[CAR] ")
                 .append("brand: " + car.getBrand())
-                .append(", color: " + car.getColor())
-        .append(", weight: " + car.getWeight());
+                .append(", color: " + car.color())
+        .append(", weight: " + car.weight());
 
         System.out.println(carStringBuilder);
     }
